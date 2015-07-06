@@ -10,6 +10,7 @@
 /*/
 !/module/
 !/test/
+!/build/
 !/Readme/
 
 # - All files and directories starting with "#"

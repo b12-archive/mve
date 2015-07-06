@@ -56,8 +56,28 @@ $ npm install --global mve
 Usage
 -----
 
-…
+<!-- @usage start -->
+  SYNOPSIS
 
+    Usage: mve [options] <source> <target>
+
+
+  OPTIONS
+
+    -h  --help   Print a short synopsis (-h) or this usage info (--help)
+
+
+  EXAMPLES
+
+    # Rename a file:
+    $ mve Readdme.md Readme.md
+
+    # Move a directory:
+    $ mve --mkdirp source/directory target/directory
+
+    # Read from a file, then pipe into it:
+    $ format-json package.json > .temp; mve --force .temp package.json
+<!-- @usage end -->
 
 
 

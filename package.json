@@ -21,6 +21,7 @@
   , "test:transpile": "rm -rf .es5 && babel test.js test/*.js test/bin/*.js module/*.js module/bin/*.js module/bin/*/*.js --out-dir .es5; chmod +x .es5/module/bin/*.js; cpy 'test/mock-cwd/*' .es5/test/mock-cwd"
   , "test:lite": "npm run test:transpile && node .es5/test.js | tap-spec"
   , "transpile": "cd module; babel --out-dir ../ *.js bin/*.js bin/*/*.js; cd ..; chmod +x bin/*.js"
+  , "usage": "npm run transpile && babel-node build/usage.js"
   , "view-coverage": "echo 'Generating coverage reports...'; npm run coverage >/dev/null && echo '...done.' && xdg-open ./coverage/lcov-report/index.html >/dev/null"
   }
 
