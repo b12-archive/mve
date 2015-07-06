@@ -24,8 +24,12 @@ if (files.length !== 2) {
 
 mv(files[0], files[1], (error) => {
   if (error) {
-    stderr.write(error.message + '\n');
-    exit(2);
+    if (error.code === 'ENOENT') {
+      stderr.write(`File not found: \`${files[0]}\`.`);
+      exit(1);
+    }
+
+    else throw error;
   }
 
   exit(0);
