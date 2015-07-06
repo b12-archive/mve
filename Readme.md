@@ -23,9 +23,22 @@ mve
 **Move a file or folder. Platform-idependent.**
 
 
-**⚠ Heads up!** This is totally a work in progress. [Thoughts and ideas][] are very welcome.
 
-[Thoughts and ideas]:  https://github.com/studio-b12/…/issues
+
+<p align="center"><a
+  title="Graphic by the great Justin Mezzell"
+  href="http://justinmezzell.tumblr.com/post/91142673693"
+  >
+  <br/>
+  <br/>
+  <img
+    src="Readme/Cassette.gif"
+    width="400"
+    height="300"
+  />
+  <br/>
+  <br/>
+</a></p>
 
 
 
