@@ -17,10 +17,10 @@
 
 
 
-…
+mve
 ===
 
-**…**
+**Move a file or folder. Platform-idependent.**
 
 
 **⚠ Heads up!** This is totally a work in progress. [Thoughts and ideas][] are very welcome.
@@ -34,7 +34,7 @@ Installation
 ------------
 
 ```sh
-$ npm install …
+$ npm install --global mve
 ```
 
 
