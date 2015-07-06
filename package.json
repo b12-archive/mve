@@ -1,5 +1,5 @@
 { "name": "mve"
-, "version": "0.0.0-work-in-progress"
+, "version": "0.1.0"
 , "description": "Move a file or folder. Platform-independent."
 
 , "bin":
