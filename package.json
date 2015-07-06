@@ -2,6 +2,10 @@
 , "version": "0.0.0-work-in-progress"
 , "description": "Move a file or folder. Platform-independent."
 
+, "bin":
+  { "mve": "bin/mve.js"
+  }
+
 , "dependencies":
   { "minimist": "^1.1.1"
   }
