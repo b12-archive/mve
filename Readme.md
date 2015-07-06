@@ -20,7 +20,7 @@
 mve
 ===
 
-**Move a file or folder. Platform-idependent.**
+**Move a file or folder. Platform-independent.**
 
 
 

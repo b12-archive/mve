@@ -1,6 +1,6 @@
 { "name": "mve"
 , "version": "0.0.0-work-in-progress"
-, "description": "Move a file or folder. Platform-idependent."
+, "description": "Move a file or folder. Platform-independent."
 
 , "dependencies":
   {}
