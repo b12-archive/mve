@@ -103,3 +103,17 @@ tape(title('Works for a single file'), (is) => {
     is.end();
   });
 });
+
+tape(title('Fails for a non-existent file'), (is) => {
+  $mve(['non-existent', '_'], {cwd}, (error, _, stderr) => {
+    is.equal(error && error.code, 1,
+      '`mve <non-existent file> <…>` fails…'
+    );
+
+    is.ok(/file not found/i.test(stderr),
+      '…with a helpful message.'
+    );
+
+    is.end();
+  });
+});
