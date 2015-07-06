@@ -7,7 +7,8 @@
   }
 
 , "dependencies":
-  { "minimist": "^1.1.1"
+  { "chalk": "^1.1.0"
+  , "minimist": "^1.1.1"
   }
 
 , "scripts":
