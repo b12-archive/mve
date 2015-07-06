@@ -19,7 +19,7 @@
   , "develop": "nodangel --ignore node_modules --ignore coverage --exec 'npm run --silent test:lite'"
   , "prepublish": "npm run --silent clean && npm run transpile"
   , "test": "jshint . && npm run test:transpile && node .es5/test.js | tap-spec"
-  , "test:transpile": "rm -rf .es5 && babel test.js test/*.js test/bin/*.js module/*.js module/bin/*.js module/bin/*/*.js --out-dir .es5; chmod +x .es5/module/bin/*.js; cpy 'test/mock-cwd/*' .es5/test/mock-cwd"
+  , "test:transpile": "rm -rf .es5 && babel test.js test/*.js test/bin/*.js module/*.js module/bin/*.js module/bin/*/*.js --out-dir .es5; chmod +x .es5/module/bin/*.js; cpy 'test/mock-cwd/{a,b}' .es5/test/mock-cwd; cpy 'test/mock-cwd/c/c' .es5/test/mock-cwd/c"
   , "test:lite": "npm run test:transpile && node .es5/test.js | tap-spec"
   , "transpile": "cd module; babel --out-dir ../ *.js bin/*.js bin/*/*.js; cd ..; chmod +x bin/*.js"
   , "usage": "npm run transpile && babel-node build/usage.js"

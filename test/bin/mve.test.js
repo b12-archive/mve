@@ -20,7 +20,7 @@ const cat = (filename) => {
     else throw error;
   }
 };
-const ls = () => readdirSync(cwd);
+const ls = (directory = cwd) => readdirSync(directory);
 
 tape(title('Prints usage'), (is) => {
   is.plan(10);
@@ -115,5 +115,33 @@ tape(title('Fails for a non-existent file'), (is) => {
     );
 
     is.end();
+  });
+});
+
+tape(title('Works for a single directory'), (is) => {
+  $mve(['c', 'c.moved'], {cwd}, (error) => {
+    is.equal(error, null,
+      '`mve <directory> <new name>` succeeds, …'
+    );
+
+    is.deepEqual(ls(),
+      ['a', 'b', 'c.moved'],
+      '…renames a directory to a new name, …'
+    );
+
+    is.deepEqual(ls(resolve(cwd, 'c.moved')),
+      ['c'],
+      '…keeps its contents…'
+    );
+
+    is.equal(cat('c.moved/c'),
+      'CCC\n',
+      '…and the contents of its files'
+    );
+
+    // Clean up.
+    $mve(['c.moved', 'c'], {cwd}, () => {
+      is.end();
+    });
   });
 });
