@@ -78,6 +78,16 @@ Usage
 
 
 
+
+Credits
+-------
+
+* based on [andrewrk/node-mv](https://github.com/andrewrk/node-mv)
+* inspired by [sindresorhus/cpy](https://github.com/sindresorhus/cpy)
+
+
+
+
 License
 -------
 
