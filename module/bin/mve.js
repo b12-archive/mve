@@ -8,3 +8,8 @@ const files = flags._;
 if (flags.h) stdout.write(require('./help/usage'));
 
 if (flags.h || flags.help) exit(0);
+
+if (files.length !== 2) {
+  stderr.write(require('./help/usage'));
+  exit(1);
+}
