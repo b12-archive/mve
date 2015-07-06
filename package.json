@@ -12,15 +12,16 @@
   , "develop": "nodangel --ignore node_modules --ignore coverage --exec 'npm run --silent test:lite'"
   , "prepublish": "npm run --silent clean && npm run transpile"
   , "test": "jshint . && npm run test:transpile && node .es5/test.js | tap-spec"
-  , "test:transpile": "rm -rf .es5 && babel test.js test/*.js module/*.js --out-dir .es5"
-  , "test:lite": "babel-node test.js | tap-spec"
-  , "transpile": "cd module && babel --out-dir ../ *.js"
+  , "test:transpile": "rm -rf .es5 && babel test.js test/*.js test/bin/*.js module/*.js module/bin/*.js module/bin/*/*.js --out-dir .es5; chmod +x .es5/module/bin/*.js; cpy 'test/mock-cwd/*' .es5/test/mock-cwd"
+  , "test:lite": "npm run test:transpile && node .es5/test.js | tap-spec"
+  , "transpile": "cd module; babel --out-dir ../ *.js bin/*.js bin/*/*.js; cd ..; chmod +x bin/*.js"
   , "view-coverage": "echo 'Generating coverage reports...'; npm run coverage >/dev/null && echo '...done.' && xdg-open ./coverage/lcov-report/index.html >/dev/null"
   }
 
 , "devDependencies":
   { "babel": "5.6.14"
   , "coveralls": "2.11.2"
+  , "cpy": "3.3.0"
   , "istanbul": "0.3.17"
   , "jshint": "2.8.0"
   , "nodangel": "1.3.8"
