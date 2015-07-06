@@ -11,7 +11,7 @@
 ](https://img.shields.io/badge/stability-unstable-yellowgreen.svg?style=flat-square)
 ](https://github.com/studio-b12/mve/milestones/1.0)
  [![Code style: airbnb
-](https://img.shields.io/badge/code%20style-airbnb-blue.svg?style=flat-square)
+](https://img.shields.io/badge/code%20style-airbnb-333333.svg?style=flat-square)
 ](https://github.com/airbnb/javascript)
 
 
