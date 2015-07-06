@@ -1,5 +1,9 @@
 const {resolve} = require('path');
-const {execFile} = require('child_process');
+const {
+  execFile,
+  execSync: $
+} = require('child_process');
+const {readFileSync, readdirSync} = require('fs');
 
 const tape = require('tape-catch');
 const {test, plus, curry} = require('1-liners');
@@ -8,6 +12,15 @@ const title = curry(plus)('The CLI program:  ');
 const mve = resolve(__dirname, '../../module/bin/mve.js');
 const $mve = curry(execFile)(mve);
 const cwd = resolve(__dirname, '../mock-cwd');
+const cat = (filename) => {
+  try {
+    return readFileSync(resolve(cwd, filename), {encoding: 'utf8'});
+  } catch (error) {
+    if (error.code === 'ENOENT') return null;
+    else throw error;
+  }
+};
+const ls = () => readdirSync(cwd);
 
 tape(title('Prints usage'), (is) => {
   is.plan(10);
@@ -65,5 +78,28 @@ tape(title('Prints usage'), (is) => {
       test(stdout, /SYNOPSIS/),
       '…and prints manpage-like help'
     );
+  });
+});
+
+tape(title('Works for a single file'), (is) => {
+  $mve(['a', 'a.moved'], {cwd}, (error) => {
+    is.equal(error, null,
+      '`mve <source file> <new destination>` succeeds, …'
+    );
+
+    is.deepEqual(ls(),
+      ['a.moved', 'b', 'c'],
+      '…moves the source file to the new destination…'
+    );
+
+    is.equal(cat('a.moved'),
+      'AAA\n',
+      '…and keeps its contents'
+    );
+
+    $('git checkout test/mock-cwd/a');
+    $('git clean -f test/mock-cwd/a.moved');
+
+    is.end();
   });
 });
