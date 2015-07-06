@@ -97,10 +97,10 @@ tape(title('Works for a single file'), (is) => {
       '…and keeps its contents'
     );
 
-    $('git checkout test/mock-cwd/a');
-    $('git clean -f test/mock-cwd/a.moved');
-
-    is.end();
+    // Clean up.
+    $mve(['a.moved', 'a'], {cwd}, () => {
+      is.end();
+    });
   });
 });
 
