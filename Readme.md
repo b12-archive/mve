@@ -22,6 +22,8 @@ mve
 
 **Move a file or folder. Platform-independent.**
 
+Perfect for npm scripts.
+
 
 
 
