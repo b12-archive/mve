@@ -20,8 +20,7 @@
 mve
 ===
 
-**Move a file or folder.**  
-**Platform-independent.**
+**Move a file or folder. Platform-independent.**
 
 Why? [For npm scripts](https://github.com/mattdesl/module-best-practices/tree/eaf53af#task-running).
 
