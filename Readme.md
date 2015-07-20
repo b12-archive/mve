@@ -58,7 +58,8 @@ $ npm install --global mve
 Usage
 -----
 
-<!-- @usage start -->
+<!-- @doxie.inject start -->
+<!-- Don’t remove or change the comment above – that can break automatic updates. -->
   SYNOPSIS
 
     Usage: mve [options] <source> <target>
@@ -76,7 +77,8 @@ Usage
 
     # Read from a file, then pipe into it:
     $ format-json package.json > .temp; mve --force .temp package.json
-<!-- @usage end -->
+<!-- Don’t remove or change the comment below – that can break automatic updates. More info at <http://npm.im/doxie.inject>. -->
+<!-- @doxie.inject end -->
 
 
 
